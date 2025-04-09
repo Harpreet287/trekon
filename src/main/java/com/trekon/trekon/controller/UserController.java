@@ -5,6 +5,7 @@ import com.trekon.trekon.model.User;
 import com.trekon.trekon.model.UserHabit;
 import com.trekon.trekon.model.Workout;
 import com.trekon.trekon.repository.UserRepository;
+import com.trekon.trekon.security.JwtUtil;
 import com.trekon.trekon.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -23,6 +24,7 @@ public class UserController {
 
     private final UserService userService;
     private final UserRepository userRepository;
+    private final JwtUtil jwtUtil;
 
     @PostMapping("/register")
     public ResponseEntity<?> register(@RequestBody User user) {
@@ -37,14 +39,19 @@ public class UserController {
 
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody Map<String, String> creds) {
-        String username = creds.get("username");
+        String email = creds.get("email");
         String password = creds.get("password");
 
-        Optional<User> user = userService.login(username, password);
+        Optional<User> user = userService.login(email, password);
         if (user.isPresent()) {
-            return ResponseEntity.ok(user.get());
+            String token = jwtUtil.generateToken(email);
+            return ResponseEntity.ok(Map.of(
+                    "token", token,
+                    "user", user.get()
+            ));
+        } else {
+            return ResponseEntity.status(401).body(Map.of("error", "Invalid credentials"));
         }
-        return ResponseEntity.badRequest().body(Map.of("error", "Invalid username or password"));
     }
 
     @PostMapping("/logout")
