@@ -7,12 +7,11 @@ import lombok.NoArgsConstructor;
 import java.time.LocalDate;
 import java.util.List;
 
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class UserHabit {
-    private String habitId;
+public class UserWorkout {
+    private String workoutId;
     private List<LocalDate> completedDates;
     private String status;
 }

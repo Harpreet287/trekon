@@ -3,6 +3,7 @@ package com.trekon.trekon.controller;
 
 import com.trekon.trekon.model.User;
 import com.trekon.trekon.model.UserHabit;
+import com.trekon.trekon.model.UserWorkout;
 import com.trekon.trekon.model.Workout;
 import com.trekon.trekon.repository.UserRepository;
 import com.trekon.trekon.security.JwtUtil;
@@ -68,16 +69,14 @@ public class UserController {
     }
 
     @PostMapping("/{userid}/workout")
-    public ResponseEntity<?> addWorkoutToUser(@PathVariable String userid,  @RequestBody Map<String, String> body) {
-
+    public ResponseEntity<?> addWorkoutToUser(@PathVariable String userid, @RequestBody Map<String, String> body) {
         String workoutId = body.get("workoutId");
         return userService.getUserById(userid).map(user -> {
-            List<String> workouts = user.getWorkouts();
-            System.out.println(workoutId+"HIIIIIII");
-            System.out.println(workouts);
-            if (!workouts.contains(workoutId)) {
-                System.out.println(workoutId+"HIIIIIII");
-                workouts.add(workoutId);
+            List<UserWorkout> workouts = user.getWorkouts();
+            boolean exists = workouts.stream()
+                    .anyMatch(w -> w.getWorkoutId().equals(workoutId));
+            if (!exists) {
+                workouts.add(new UserWorkout(workoutId, new ArrayList<>(), "incomplete"));
                 user.setWorkouts(workouts);
                 userService.saveUser(user);
             }
@@ -86,11 +85,11 @@ public class UserController {
     }
 
     @DeleteMapping("/{userid}/workout")
-    public ResponseEntity<?> deleteUser(@PathVariable String userid, @RequestBody Map<String, String> body) {
+    public ResponseEntity<?> removeWorkoutFromUser(@PathVariable String userid, @RequestBody Map<String, String> body) {
         String workoutId = body.get("workoutId");
-        return userService.getUserById(userid).map(user->{
-            List<String> workouts = user.getWorkouts();
-            workouts.remove(workoutId);
+        return userService.getUserById(userid).map(user -> {
+            List<UserWorkout> workouts = user.getWorkouts();
+            workouts.removeIf(w -> w.getWorkoutId().equals(workoutId));
             user.setWorkouts(workouts);
             userService.saveUser(user);
             return ResponseEntity.ok(user);
@@ -114,7 +113,7 @@ public class UserController {
             boolean exists = user.get().getHabits().stream()
                     .anyMatch(h -> h.getHabitId().equals(habitId));
             if (!exists) {
-                UserHabit userHabit = new UserHabit(habitId, new ArrayList<>());
+                UserHabit userHabit = new UserHabit(habitId, new ArrayList<>(), "incomplete");
                 user.get().getHabits().add(userHabit);
                 userService.saveUser(user.get());
             }

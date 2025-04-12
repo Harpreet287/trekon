@@ -23,7 +23,7 @@ public class User {
     private double weight;
     private double height;
     private String gender;
-    private List<String> workouts;
+    private List<UserWorkout> workouts;
     private List<UserHabit>habits;
     private String chatMemory;
 }

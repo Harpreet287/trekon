@@ -1,0 +1,106 @@
+.register-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f7f5f0;
+    padding: 20px;
+
+}
+
+.register-form-wrapper {
+    width: 100%;
+    max-width: 5000px;
+    padding: 20px;
+}
+
+.register-title {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    color: #333;
+    text-align: center;
+}
+
+.register-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-group {
+    width: 100%;
+}
+
+.form-row {
+    display: flex;
+    gap: 15px;
+}
+
+.half {
+    width: 50%;
+}
+
+.form-control {
+    width: 100%;
+    padding: 15px;
+    border-radius: 30px;
+    border: none;
+    background-color: #404040;
+    color: white;
+    font-size: 1rem;
+    outline: none;
+}
+
+.form-control::placeholder {
+    color: #ccc;
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.input-group .form-control {
+    padding-right: 35px;
+}
+
+.input-group-text {
+    position: absolute;
+    right: 15px;
+    color: #ccc;
+}
+
+.error-message {
+    color: #e74c3c;
+    margin-top: 5px;
+    text-align: center;
+}
+
+.register-button {
+    margin-top: 15px;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 30px;
+    background-color: #e5795e;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s;
+}
+
+.register-button:hover {
+    background-color: #d66c52;
+}
+
+.arrow-icon {
+    margin-left: 10px;
+}
+
+.register-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
