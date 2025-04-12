@@ -1,8 +1,20 @@
-import { useState } from 'react';
+import {useEffect, useState} from 'react';
 import { useNavigate } from 'react-router-dom';
+import { ArrowRightIcon } from '@heroicons/react/24/solid';
+
 import axios from 'axios';
 import '../styles/register.css'
+import {AuthData} from "../auth/AuthWrapper.jsx";
 function Register() {
+    const {user} = AuthData();
+    const nav = useNavigate();
+
+    useEffect(() => {
+        if (user?.isAuthenticated) {
+            nav("/");
+        }
+    }, [user, nav]);
+
     const [formData, setFormData] = useState({
         firstName: '',
         lastName:'',
@@ -178,7 +190,8 @@ function Register() {
                         disabled={loading}
                     >
                         {loading ? "Registering..." : "Let's Get Started"}
-                            <span className="arrow-icon">-></span>
+                            <span className="arrow-icon">
+"->"                            </span>
                             </button>
                             </form>
                             </div>
