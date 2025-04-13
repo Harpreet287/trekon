@@ -26,7 +26,6 @@ public class HabitController {
     public Habit createHabit(@RequestBody Habit habit) {
         return habitService.addHabit(habit);
     }
-
     @DeleteMapping("/{id}")
     public ResponseEntity<?> delete(@PathVariable String id) {
         habitService.deleteHabit(id);

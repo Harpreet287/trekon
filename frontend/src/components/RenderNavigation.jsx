@@ -7,6 +7,7 @@ import Workout from "../pages/Workout.jsx";
 import About from "../pages/About.jsx";
 import Habits from "../pages/Habits.jsx";
 import Register from "../pages/Register.jsx";
+import AiDoctorPage from "../pages/AiDoctorPage.jsx";
 
 function RenderMenu(){
     const {user, logout} = AuthData();
@@ -36,9 +37,13 @@ function RenderMenu(){
                 )}
                 {
                     user.isAuthenticated?
-                        <div className="menuItem" ><Link onClick={logout} to={'#'}>log out</Link></div>
+                        <div className="menuItem" ><Link onClick={logout} to={'#'}>Log Out</Link></div>
                         :
-                        <div className = "menuItem"><Link to={'login'}>log in</Link> </div>
+                        <div>
+                            <div className = "menuItem"><Link to={'login'}>Login</Link> </div>
+                            <div className = "menuItem"><Link to={'register'}>Register</Link> </div>
+
+                        </div>
                 }
             </div>
         );
@@ -54,6 +59,7 @@ const getComponent = (elementName) => {
         case "Workout": return <Workout />;
         case "About": return <About />;
         case "Register": return <Register />;
+        case "AiDoctorPage": return <AiDoctorPage />;
         default: return <Home />;
     }
 };

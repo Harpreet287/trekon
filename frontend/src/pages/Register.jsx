@@ -71,7 +71,11 @@ function Register() {
     };
 
     return (
+
         <div className="register-container">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+
             <div className="register-form-wrapper">
                 <h1 className="register-title">Welcome to Trekon 💪</h1>
 
@@ -190,13 +194,14 @@ function Register() {
                         disabled={loading}
                     >
                         {loading ? "Registering..." : "Let's Get Started"}
-                            <span className="arrow-icon">
-"->"                            </span>
-                            </button>
-                            </form>
-                            </div>
-                            </div>
-                            );
-                        }
+                        <span className="arrow-icon">
+        <ArrowRightIcon width={20} height={20}/>
+                           </span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    );
+}
 
 export default Register;

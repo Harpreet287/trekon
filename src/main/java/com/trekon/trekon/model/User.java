@@ -1,6 +1,7 @@
 package com.trekon.trekon.model;
 
 import java.util.List;
+import java.util.Map;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -25,7 +26,8 @@ public class User {
     private String gender;
     private List<UserWorkout> workouts;
     private List<UserHabit>habits;
-    private String chatMemory;
+    private List<Map<String, String>> chatMemory;
+
 }
 
 

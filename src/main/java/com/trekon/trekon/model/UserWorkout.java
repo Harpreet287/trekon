@@ -14,4 +14,5 @@ public class UserWorkout {
     private String workoutId;
     private List<LocalDate> completedDates;
     private String status;
+    private String difficulty;
 }

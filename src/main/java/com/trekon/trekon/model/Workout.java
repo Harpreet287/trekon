@@ -17,4 +17,5 @@ public class Workout {
     private String description;
     private String type; // reps or time
     private String target; // cardio/calisthenics/strength
+    private String difficulty; // easy/medium/hard
 }
