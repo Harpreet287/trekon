@@ -2,7 +2,6 @@ package com.trekon.trekon.controller;
 
 import com.trekon.trekon.service.AIDoctorService;
 import com.trekon.trekon.service.UserService;
-import com.trekon.trekon.model.User;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -27,14 +26,12 @@ public class AiDoctorController {
             List<Map<String, String>> history = user.getChatMemory() != null
                     ? user.getChatMemory()
                     : new ArrayList<>();
-
-            // Get AI response with the user object
+            // get ai response
             String aiReply = aiDoctorService.getResponse(user, history, query);
-
-            // Append both user query and AI reply
+            // make history
             history.add(Map.of("role", "user", "text", query));
             history.add(Map.of("role", "ai", "text", aiReply));
-
+            // save history
             user.setChatMemory(history);
             userService.saveUser(user);
 
