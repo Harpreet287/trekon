@@ -2,7 +2,6 @@
 
 echo "ApacheBench Full Stack Test via API Gateway (localhost:8080)"
 
-# 🔧 CONFIG
 GATEWAY="http://localhost:8080/api"
 USER_ID="6800c8cb94e9a76808f545ca"        # Set this after registration
 HABIT_ID="6800ca0cd3c23b5f7cd7e97f"      # Set this after habit creation
