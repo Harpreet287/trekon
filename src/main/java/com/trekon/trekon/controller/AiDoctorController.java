@@ -1,5 +1,6 @@
 package com.trekon.trekon.controller;
 
+import com.trekon.trekon.facade.AIDoctorFacade;
 import com.trekon.trekon.service.AIDoctorService;
 import com.trekon.trekon.service.UserService;
 import lombok.RequiredArgsConstructor;
@@ -14,7 +15,7 @@ import java.util.Map;
 @RequestMapping("/api/user")
 @RequiredArgsConstructor
 public class AiDoctorController {
-
+    private final AIDoctorFacade aiDoctorFacade;
     private final AIDoctorService aiDoctorService;
     private final UserService userService;
 
