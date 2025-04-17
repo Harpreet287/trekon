@@ -41,7 +41,8 @@ public class SecurityConfig {
                                 "/api/user/register",
                                 "/api/user/*/checkWorkout",
                                 "/api/user/*/checkHabit",
-                                "/api/user/*/ai-doctor"
+                                "/api/user/*/ai-doctor",
+                                "/api/**"
                         ).permitAll()
 
                         .anyRequest().authenticated()

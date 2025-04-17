@@ -74,13 +74,50 @@ public class UserController {
     public ResponseEntity<User> updateUser(@PathVariable String id, @RequestBody Map<String, Object> updates) {
         User user = userRepository.findById(id)
                 .orElseThrow(() -> new UsernameNotFoundException("User not found"));
-
+        System.out.println(updates);
         // Only update fields you want to allow
         if (updates.containsKey("firstName")) user.setFirstName((String) updates.get("firstName"));
         if (updates.containsKey("lastName")) user.setLastName((String) updates.get("lastName"));
-        if (updates.containsKey("age")) user.setAge((Integer) updates.get("age"));
-        if (updates.containsKey("height")) user.setHeight(((Number) updates.get("height")).doubleValue());
-        if (updates.containsKey("weight")) user.setWeight(((Number) updates.get("weight")).doubleValue());
+        if (updates.containsKey("age")) {
+            String ageStr = (String) updates.get("age");
+            try {
+                int age = Integer.parseInt(ageStr);
+                System.out.println(age);
+                user.setAge(age);
+            } catch (NumberFormatException e) {
+                // Handle the error if parsing fails
+                System.out.println("Invalid age format");
+            }
+        }
+        if (updates.containsKey("height")) {
+            Object heightObj = updates.get("height");
+            System.out.println(heightObj);
+            if (heightObj instanceof Number) {
+                user.setHeight(((Number) heightObj).doubleValue());
+            } else if (heightObj instanceof String) {
+                try {
+                    user.setHeight(Double.parseDouble((String) heightObj));
+                } catch (NumberFormatException e) {
+                    // Handle invalid height format
+                    System.out.println("Invalid height format");
+                }
+            }
+        }
+
+        if (updates.containsKey("weight")) {
+            System.out.println(updates.get("weight"));
+            Object weightObj = updates.get("weight");
+            if (weightObj instanceof Number) {
+                user.setWeight(((Number) weightObj).doubleValue());
+            } else if (weightObj instanceof String) {
+                try {
+                    user.setWeight(Double.parseDouble((String) weightObj));
+                } catch (NumberFormatException e) {
+                    // Handle invalid weight format
+                    System.out.println("Invalid weight format");
+                }
+            }
+        }
         if (updates.containsKey("gender")) user.setGender((String) updates.get("gender"));
 
         return ResponseEntity.ok(userRepository.save(user));

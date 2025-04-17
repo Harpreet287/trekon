@@ -1,0 +1,418 @@
+Logging in to get JWT token...
+Got Token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhc2RhQGdtYWlsLmNvbSIsImlhdCI6MTc0NDkxMDU2NCwiZXhwIjoxNzQ0OTk2OTY0fQ.TBb8s0QUj9U-vwyxkUYQag3A4AR1RYwR155OS4Lzf6g
+
+Testing GET /user
+This is ApacheBench, Version 2.3 <$Revision: 1923142 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking localhost (be patient).....done
+
+
+Server Software:        
+Server Hostname:        localhost
+Server Port:            8080
+
+Document Path:          /api/user/6800c8cb94e9a76808f545ca
+Document Length:        471 bytes
+
+Concurrency Level:      10
+Time taken for tests:   3.124 seconds
+Complete requests:      100
+Failed requests:        0
+Total transferred:      74600 bytes
+HTML transferred:       47100 bytes
+Requests per second:    32.01 [#/sec] (mean)
+Time per request:       312.359 [ms] (mean)
+Time per request:       31.236 [ms] (mean, across all concurrent requests)
+Transfer rate:          23.32 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    0   0.2      0       1
+Processing:    34  113 214.0     55    2045
+Waiting:       34  112 213.1     55    2035
+Total:         34  113 214.0     56    2045
+
+Percentage of the requests served within a certain time (ms)
+  50%     56
+  66%     65
+  75%    118
+  80%    141
+  90%    256
+  95%    289
+  98%    501
+  99%   2045
+ 100%   2045 (longest request)
+
+Testing POST /habit (create)
+This is ApacheBench, Version 2.3 <$Revision: 1923142 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking localhost (be patient).....done
+
+
+Server Software:        
+Server Hostname:        localhost
+Server Port:            8080
+
+Document Path:          /api/habit
+Document Length:        62 bytes
+
+Concurrency Level:      10
+Time taken for tests:   2.966 seconds
+Complete requests:      100
+Failed requests:        0
+Total transferred:      16700 bytes
+Total body sent:        34700
+HTML transferred:       6200 bytes
+Requests per second:    33.71 [#/sec] (mean)
+Time per request:       296.611 [ms] (mean)
+Time per request:       29.661 [ms] (mean, across all concurrent requests)
+Transfer rate:          5.50 [Kbytes/sec] received
+                        11.42 kb/s sent
+                        16.92 kb/s total
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    1   1.6      0       9
+Processing:    38  214 287.7     75    1073
+Waiting:       38  213 286.9     75    1073
+Total:         38  215 288.1     75    1073
+
+Percentage of the requests served within a certain time (ms)
+  50%     75
+  66%    107
+  75%    263
+  80%    477
+  90%    850
+  95%    892
+  98%    996
+  99%   1073
+ 100%   1073 (longest request)
+
+Testing GET /habit
+This is ApacheBench, Version 2.3 <$Revision: 1923142 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking localhost (be patient).....done
+
+
+Server Software:        
+Server Hostname:        localhost
+Server Port:            8080
+
+Document Path:          /api/habit
+Document Length:        75834 bytes
+
+Concurrency Level:      10
+Time taken for tests:   3.625 seconds
+Complete requests:      100
+Failed requests:        0
+Total transferred:      7593900 bytes
+HTML transferred:       7583400 bytes
+Requests per second:    27.59 [#/sec] (mean)
+Time per request:       362.481 [ms] (mean)
+Time per request:       36.248 [ms] (mean, across all concurrent requests)
+Transfer rate:          2045.88 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    2   6.2      0      31
+Processing:   126  326 248.9    216    1102
+Waiting:      125  310 213.2    211     927
+Total:        126  328 250.5    217    1103
+
+Percentage of the requests served within a certain time (ms)
+  50%    217
+  66%    270
+  75%    357
+  80%    501
+  90%    820
+  95%   1051
+  98%   1071
+  99%   1103
+ 100%   1103 (longest request)
+
+Testing POST /user/:id/habit
+This is ApacheBench, Version 2.3 <$Revision: 1923142 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking localhost (be patient).....done
+
+
+Server Software:        
+Server Hostname:        localhost
+Server Port:            8080
+
+Document Path:          /api/user/6800c8cb94e9a76808f545ca/habit
+Document Length:        471 bytes
+
+Concurrency Level:      10
+Time taken for tests:   1.151 seconds
+Complete requests:      100
+Failed requests:        0
+Total transferred:      74600 bytes
+Total body sent:        38500
+HTML transferred:       47100 bytes
+Requests per second:    86.90 [#/sec] (mean)
+Time per request:       115.074 [ms] (mean)
+Time per request:       11.507 [ms] (mean, across all concurrent requests)
+Transfer rate:          63.31 [Kbytes/sec] received
+                        32.67 kb/s sent
+                        95.98 kb/s total
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    1   1.8      0      14
+Processing:    33   58  59.8     40     572
+Waiting:       33   56  58.7     40     566
+Total:         33   58  60.2     40     572
+
+Percentage of the requests served within a certain time (ms)
+  50%     40
+  66%     45
+  75%     56
+  80%     63
+  90%    119
+  95%    145
+  98%    155
+  99%    572
+ 100%    572 (longest request)
+
+Testing POST /user/:id/checkHabit
+This is ApacheBench, Version 2.3 <$Revision: 1923142 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking localhost (be patient).....done
+
+
+Server Software:        
+Server Hostname:        localhost
+Server Port:            8080
+
+Document Path:          /api/user/6800c8cb94e9a76808f545ca/checkHabit
+Document Length:        484 bytes
+
+Concurrency Level:      10
+Time taken for tests:   2.030 seconds
+Complete requests:      100
+Failed requests:        0
+Total transferred:      75900 bytes
+Total body sent:        39000
+HTML transferred:       48400 bytes
+Requests per second:    49.27 [#/sec] (mean)
+Time per request:       202.972 [ms] (mean)
+Time per request:       20.297 [ms] (mean, across all concurrent requests)
+Transfer rate:          36.52 [Kbytes/sec] received
+                        18.76 kb/s sent
+                        55.28 kb/s total
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    0   0.2      0       1
+Processing:    62  180 222.6     76     799
+Waiting:       62  180 222.6     75     798
+Total:         62  180 222.6     76     799
+
+Percentage of the requests served within a certain time (ms)
+  50%     76
+  66%     83
+  75%     89
+  80%    429
+  90%    744
+  95%    751
+  98%    792
+  99%    799
+ 100%    799 (longest request)
+
+Testing POST /workouts
+This is ApacheBench, Version 2.3 <$Revision: 1923142 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking localhost (be patient).....done
+
+
+Server Software:        
+Server Hostname:        localhost
+Server Port:            8080
+
+Document Path:          /api/workouts
+Document Length:        138 bytes
+
+Concurrency Level:      10
+Time taken for tests:   2.956 seconds
+Complete requests:      100
+Failed requests:        0
+Total transferred:      24300 bytes
+Total body sent:        44300
+HTML transferred:       13800 bytes
+Requests per second:    33.83 [#/sec] (mean)
+Time per request:       295.596 [ms] (mean)
+Time per request:       29.560 [ms] (mean, across all concurrent requests)
+Transfer rate:          8.03 [Kbytes/sec] received
+                        14.64 kb/s sent
+                        22.66 kb/s total
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    0   0.4      0       2
+Processing:    35  180 264.3     67    1230
+Waiting:       35  179 264.1     67    1229
+Total:         35  180 264.3     67    1230
+
+Percentage of the requests served within a certain time (ms)
+  50%     67
+  66%    105
+  75%    144
+  80%    216
+  90%    797
+  95%    827
+  98%   1006
+  99%   1230
+ 100%   1230 (longest request)
+
+Testing GET /workouts
+This is ApacheBench, Version 2.3 <$Revision: 1923142 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking localhost (be patient).....done
+
+
+Server Software:        
+Server Hostname:        localhost
+Server Port:            8080
+
+Document Path:          /api/workouts
+Document Length:        41980 bytes
+
+Concurrency Level:      10
+Time taken for tests:   2.281 seconds
+Complete requests:      100
+Failed requests:        0
+Total transferred:      4208500 bytes
+HTML transferred:       4198000 bytes
+Requests per second:    43.83 [#/sec] (mean)
+Time per request:       228.148 [ms] (mean)
+Time per request:       22.815 [ms] (mean, across all concurrent requests)
+Transfer rate:          1801.40 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    0   1.3      0      12
+Processing:    74  201 120.1    169     684
+Waiting:       74  196 119.0    164     683
+Total:         75  202 120.3    169     685
+
+Percentage of the requests served within a certain time (ms)
+  50%    169
+  66%    230
+  75%    264
+  80%    286
+  90%    386
+  95%    434
+  98%    512
+  99%    685
+ 100%    685 (longest request)
+
+Testing POST /user/:id/workout
+This is ApacheBench, Version 2.3 <$Revision: 1923142 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking localhost (be patient).....done
+
+
+Server Software:        
+Server Hostname:        localhost
+Server Port:            8080
+
+Document Path:          /api/user/6800c8cb94e9a76808f545ca/workout
+Document Length:        484 bytes
+
+Concurrency Level:      10
+Time taken for tests:   0.687 seconds
+Complete requests:      100
+Failed requests:        0
+Total transferred:      75900 bytes
+Total body sent:        41500
+HTML transferred:       48400 bytes
+Requests per second:    145.57 [#/sec] (mean)
+Time per request:       68.695 [ms] (mean)
+Time per request:       6.870 [ms] (mean, across all concurrent requests)
+Transfer rate:          107.90 [Kbytes/sec] received
+                        59.00 kb/s sent
+                        166.89 kb/s total
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    0   0.6      0       3
+Processing:    34   62  60.3     42     265
+Waiting:       34   62  60.3     42     265
+Total:         34   63  60.3     42     267
+
+Percentage of the requests served within a certain time (ms)
+  50%     42
+  66%     44
+  75%     47
+  80%     48
+  90%    226
+  95%    228
+  98%    266
+  99%    267
+ 100%    267 (longest request)
+
+Testing POST /user/:id/checkWorkout
+This is ApacheBench, Version 2.3 <$Revision: 1923142 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking localhost (be patient).....done
+
+
+Server Software:        
+Server Hostname:        localhost
+Server Port:            8080
+
+Document Path:          /api/user/6800c8cb94e9a76808f545ca/checkWorkout
+Document Length:        497 bytes
+
+Concurrency Level:      10
+Time taken for tests:   2.962 seconds
+Complete requests:      100
+Failed requests:        0
+Total transferred:      77200 bytes
+Total body sent:        39400
+HTML transferred:       49700 bytes
+Requests per second:    33.76 [#/sec] (mean)
+Time per request:       296.199 [ms] (mean)
+Time per request:       29.620 [ms] (mean, across all concurrent requests)
+Transfer rate:          25.45 [Kbytes/sec] received
+                        12.99 kb/s sent
+                        38.44 kb/s total
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    0   1.0      0      10
+Processing:    66  249 268.6    116     873
+Waiting:       66  248 268.4    115     872
+Total:         67  249 268.6    116     873
+
+Percentage of the requests served within a certain time (ms)
+  50%    116
+  66%    153
+  75%    568
+  80%    610
+  90%    707
+  95%    873
+  98%    873
+  99%    873
+ 100%    873 (longest request)
+
+Done benchmarking all JWT-secured microservices.
