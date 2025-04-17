@@ -1,0 +1,7 @@
+{
+  "name": "Push Ups",
+  "description": "20 pushups",
+  "type": "reps",
+  "target": "calisthenics",
+  "difficulty": "medium"
+}
