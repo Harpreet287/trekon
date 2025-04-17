@@ -5,6 +5,7 @@ import com.trekon.user.JwtUtil;
 import com.trekon.user.HabitWebClient;
 import com.trekon.user.WorkoutWebClient;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.annotation.*;
@@ -22,6 +23,7 @@ public class UserController {
     private final UserService userService;
     private final HabitWebClient habitWebClient;
     private final WorkoutWebClient workoutWebClient;
+    private final JwtUtil jwtUtil;
 
     @PostMapping("/register")
     public ResponseEntity<?> register(@RequestBody User user) {
@@ -38,13 +40,18 @@ public class UserController {
         String email = creds.get("email");
         String password = creds.get("password");
 
-        Optional<User> user = userService.login(email, password);
-        if (user.isPresent()) {
-            return ResponseEntity.ok(Map.of("user", user.get()));
+        Optional<User> userOpt = userService.login(email, password);
+        if (userOpt.isPresent()) {
+            String token = jwtUtil.generateToken(email);  // ✅ generate token here
+            return ResponseEntity.ok(Map.of(
+                    "token", token,
+                    "user", userOpt.get()
+            ));
         } else {
-            return ResponseEntity.status(401).body(Map.of("error", "Invalid credentials"));
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(Map.of("error", "Invalid credentials"));
         }
     }
+
     @PostMapping("/logout")
     public ResponseEntity<?> logout() {
         return ResponseEntity.ok().body(Map.of("message", "Logout successful"));

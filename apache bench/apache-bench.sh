@@ -1,61 +1,52 @@
 #!/bin/bash
 
-echo "ApacheBench Full Stack Test via API Gateway (localhost:8080)"
-
 GATEWAY="http://localhost:8080/api"
-USER_ID="6800c8cb94e9a76808f545ca"        # Set this after registration
-HABIT_ID="6800ca0cd3c23b5f7cd7e97f"      # Set this after habit creation
-WORKOUT_ID="6800cc81c5f69922d72a84c9"  # Set this after workout creation
+USER_ID="6800c8cb94e9a76808f545ca"
 
+echo "Logging in to get JWT token..."
+TOKEN=eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhc2RhQGdtYWlsLmNvbSIsImlhdCI6MTc0NDkxMDU2NCwiZXhwIjoxNzQ0OTk2OTY0fQ.TBb8s0QUj9U-vwyxkUYQag3A4AR1RYwR155OS4Lzf6g
 
-echo ""
-echo "Testing user login"
-ab -n 100 -c 10 -T "application/json" -p login.json "$GATEWAY/user/login"
+echo "Got Token: $TOKEN"
+[[ "$TOKEN" == "null" ]] && echo "Login failed" && exit 1
 
-echo ""
-echo "Testing get user by ID"
-ab -n 100 -c 10 "$GATEWAY/user/$USER_ID"
+# JWT Header
+AUTH_HEADER="Authorization: Bearer $TOKEN"
 
 echo ""
-echo "Testing create habit"
-ab -n 100 -c 10 -T "application/json" -p create-habit.json "$GATEWAY/habit"
+echo "Testing GET /user"
+ab -n 100 -c 10 -H "$AUTH_HEADER" "$GATEWAY/user/$USER_ID"
 
 echo ""
-echo "🌱 Testing get all habits"
-ab -n 100 -c 10 "$GATEWAY/habit"
+echo "Testing POST /habit (create)"
+ab -n 100 -c 10 -T "application/json" -H "$AUTH_HEADER" -p create-habit.json "$GATEWAY/habit"
 
 echo ""
-echo "Testing add habit to user"
-ab -n 100 -c 10 -T "application/json" -p add-habit.json "$GATEWAY/user/$USER_ID/habit"
+echo "Testing GET /habit"
+ab -n 100 -c 10 -H "$AUTH_HEADER" "$GATEWAY/habit"
 
 echo ""
-echo "Testing check habit"
-ab -n 100 -c 10 -T "application/json" -p check-habit.json "$GATEWAY/user/$USER_ID/checkHabit"
+echo "Testing POST /user/:id/habit"
+ab -n 100 -c 10 -T "application/json" -H "$AUTH_HEADER" -p add-habit.json "$GATEWAY/user/$USER_ID/habit"
 
 echo ""
-echo "Testing get user habits"
-ab -n 100 -c 10 "$GATEWAY/user/$USER_ID/habit"
+echo "Testing POST /user/:id/checkHabit"
+ab -n 100 -c 10 -T "application/json" -H "$AUTH_HEADER" -p check-habit.json "$GATEWAY/user/$USER_ID/checkHabit"
 
 echo ""
-echo "Testing create workout"
-ab -n 100 -c 10 -T "application/json" -p create-workout.json "$GATEWAY/workout"
+echo "Testing POST /workouts"
+ab -n 100 -c 10 -T "application/json" -H "$AUTH_HEADER" -p create-workout.json "$GATEWAY/workouts"
 
 echo ""
-echo "Testing get all workouts"
-ab -n 100 -c 10 "$GATEWAY/workout"
+echo "Testing GET /workouts"
+ab -n 100 -c 10 -H "$AUTH_HEADER" "$GATEWAY/workouts"
 
 echo ""
-echo "Testing add workout to user"
-ab -n 100 -c 10 -T "application/json" -p add-workout.json "$GATEWAY/user/$USER_ID/workout"
+echo "Testing POST /user/:id/workout"
+ab -n 100 -c 10 -T "application/json" -H "$AUTH_HEADER" -p add-workout.json "$GATEWAY/user/$USER_ID/workout"
 
 echo ""
-echo "Testing check workout"
-ab -n 100 -c 10 -T "application/json" -p check-workout.json "$GATEWAY/user/$USER_ID/checkWorkout"
+echo "Testing POST /user/:id/checkWorkout"
+ab -n 100 -c 10 -T "application/json" -H "$AUTH_HEADER" -p check-workout.json "$GATEWAY/user/$USER_ID/checkWorkout"
 
 echo ""
-echo "Testing get user workouts"
-ab -n 100 -c 10 "$GATEWAY/user/$USER_ID/workout"
-
-
-echo ""
-echo "Test complete."
+echo "Done benchmarking all JWT-secured microservices."
