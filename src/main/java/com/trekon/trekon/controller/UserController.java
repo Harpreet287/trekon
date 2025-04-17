@@ -97,7 +97,14 @@ public class UserController {
                     .anyMatch(w -> w.getWorkoutId().equals(workoutId));
             if (!exists) {
 
-                workouts.add(new UserWorkout(workoutId, new ArrayList<>(), "incomplete", difficulty ));
+                workouts.add(
+                        UserWorkout.builder()
+                                .workoutId(workoutId)
+                                .completedDates(new ArrayList<>())
+                                .status("incomplete")
+                                .difficulty(difficulty)
+                                .build()
+                );
                 user.setWorkouts(workouts);
                 userService.saveUser(user);
             }
