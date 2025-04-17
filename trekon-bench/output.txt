@@ -1,5 +1,5 @@
 Getting JWT token...
-Token: eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhc2RAZ21haWwuY29tIiwiaWF0IjoxNzQ0NzE0MzY4LCJleHAiOjE3NDQ4MDA3Njh9.ei1gmQsywP_Qf6VpZUVgyqtH8BKixix56wdEkraZ7zxdtNnuav_qRFDC3Yld6DNmK-xU6NlVMLWOgn2FahKsSg
+Token: null
 
 Testing GET /user
 This is ApacheBench, Version 2.3 <$Revision: 1923142 $>
@@ -14,36 +14,37 @@ Server Hostname:        localhost
 Server Port:            8080
 
 Document Path:          /api/user/67fe102c37c7092de433cbd2
-Document Length:        793 bytes
+Document Length:        0 bytes
 
 Concurrency Level:      10
-Time taken for tests:   1.828 seconds
+Time taken for tests:   0.898 seconds
 Complete requests:      100
 Failed requests:        0
-Total transferred:      115700 bytes
-HTML transferred:       79300 bytes
-Requests per second:    54.71 [#/sec] (mean)
-Time per request:       182.781 [ms] (mean)
-Time per request:       18.278 [ms] (mean, across all concurrent requests)
-Transfer rate:          61.82 [Kbytes/sec] received
+Non-2xx responses:      100
+Total transferred:      26200 bytes
+HTML transferred:       0 bytes
+Requests per second:    111.34 [#/sec] (mean)
+Time per request:       89.814 [ms] (mean)
+Time per request:       8.981 [ms] (mean, across all concurrent requests)
+Transfer rate:          28.49 [Kbytes/sec] received
 
 Connection Times (ms)
               min  mean[+/-sd] median   max
-Connect:        0    0   0.2      0       2
-Processing:   109  169  96.9    124     501
-Waiting:      109  168  96.8    124     501
-Total:        109  169  96.9    124     502
+Connect:        0    0   0.1      0       1
+Processing:    33   46  65.9     36     505
+Waiting:       33   46  65.9     36     505
+Total:         33   47  65.9     36     505
 
 Percentage of the requests served within a certain time (ms)
-  50%    124
-  66%    127
-  75%    133
-  80%    209
-  90%    374
-  95%    394
-  98%    426
-  99%    502
- 100%    502 (longest request)
+  50%     36
+  66%     38
+  75%     41
+  80%     42
+  90%     43
+  95%     45
+  98%    505
+  99%    505
+ 100%    505 (longest request)
 Testing POST /checkHabit
 This is ApacheBench, Version 2.3 <$Revision: 1923142 $>
 Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
@@ -57,39 +58,40 @@ Server Hostname:        localhost
 Server Port:            8080
 
 Document Path:          /api/user/67fe102c37c7092de433cbd2/checkHabit
-Document Length:        793 bytes
+Document Length:        26 bytes
 
 Concurrency Level:      10
-Time taken for tests:   3.785 seconds
+Time taken for tests:   0.978 seconds
 Complete requests:      100
 Failed requests:        0
-Total transferred:      115700 bytes
-Total body sent:        43000
-HTML transferred:       79300 bytes
-Requests per second:    26.42 [#/sec] (mean)
-Time per request:       378.469 [ms] (mean)
-Time per request:       37.847 [ms] (mean, across all concurrent requests)
-Transfer rate:          29.85 [Kbytes/sec] received
-                        11.10 kb/s sent
-                        40.95 kb/s total
+Non-2xx responses:      100
+Total transferred:      30100 bytes
+Total body sent:        25000
+HTML transferred:       2600 bytes
+Requests per second:    102.20 [#/sec] (mean)
+Time per request:       97.846 [ms] (mean)
+Time per request:       9.785 [ms] (mean, across all concurrent requests)
+Transfer rate:          30.04 [Kbytes/sec] received
+                        24.95 kb/s sent
+                        54.99 kb/s total
 
 Connection Times (ms)
               min  mean[+/-sd] median   max
 Connect:        0    0   0.2      0       1
-Processing:   162  356 222.0    201     766
-Waiting:      162  355 222.0    201     766
-Total:        162  356 221.9    201     766
+Processing:    34   45  52.1     38     557
+Waiting:       33   45  52.1     38     557
+Total:         34   45  52.1     38     557
 
 Percentage of the requests served within a certain time (ms)
-  50%    201
-  66%    440
-  75%    669
-  80%    677
-  90%    700
-  95%    702
-  98%    711
-  99%    766
- 100%    766 (longest request)
+  50%     38
+  66%     42
+  75%     43
+  80%     43
+  90%     48
+  95%     56
+  98%     58
+  99%    557
+ 100%    557 (longest request)
 Testing POST /checkWorkout
 This is ApacheBench, Version 2.3 <$Revision: 1923142 $>
 Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
@@ -103,39 +105,40 @@ Server Hostname:        localhost
 Server Port:            8080
 
 Document Path:          /api/user/67fe102c37c7092de433cbd2/checkWorkout
-Document Length:        793 bytes
+Document Length:        26 bytes
 
 Concurrency Level:      10
-Time taken for tests:   3.892 seconds
+Time taken for tests:   0.529 seconds
 Complete requests:      100
 Failed requests:        0
-Total transferred:      115700 bytes
-Total body sent:        41100
-HTML transferred:       79300 bytes
-Requests per second:    25.70 [#/sec] (mean)
-Time per request:       389.154 [ms] (mean)
-Time per request:       38.915 [ms] (mean, across all concurrent requests)
-Transfer rate:          29.03 [Kbytes/sec] received
-                        10.31 kb/s sent
-                        39.35 kb/s total
+Non-2xx responses:      100
+Total transferred:      30100 bytes
+Total body sent:        23100
+HTML transferred:       2600 bytes
+Requests per second:    189.20 [#/sec] (mean)
+Time per request:       52.853 [ms] (mean)
+Time per request:       5.285 [ms] (mean, across all concurrent requests)
+Transfer rate:          55.62 [Kbytes/sec] received
+                        42.68 kb/s sent
+                        98.30 kb/s total
 
 Connection Times (ms)
               min  mean[+/-sd] median   max
 Connect:        0    0   0.2      0       1
-Processing:   176  345 222.1    192     758
-Waiting:      176  345 222.1    191     758
-Total:        176  346 222.1    192     758
+Processing:    33   46  16.7     41     107
+Waiting:       33   45  15.5     41     102
+Total:         34   46  16.6     41     107
 
 Percentage of the requests served within a certain time (ms)
-  50%    192
-  66%    454
-  75%    686
-  80%    687
-  90%    695
-  95%    700
-  98%    756
-  99%    758
- 100%    758 (longest request)
+  50%     41
+  66%     44
+  75%     47
+  80%     53
+  90%     64
+  95%    100
+  98%    102
+  99%    107
+ 100%    107 (longest request)
 Testing GET /user/:id/habit
 This is ApacheBench, Version 2.3 <$Revision: 1923142 $>
 Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
@@ -149,36 +152,37 @@ Server Hostname:        localhost
 Server Port:            8080
 
 Document Path:          /api/user/67fe102c37c7092de433cbd2/habit
-Document Length:        271 bytes
+Document Length:        0 bytes
 
 Concurrency Level:      10
-Time taken for tests:   3.626 seconds
+Time taken for tests:   0.837 seconds
 Complete requests:      100
 Failed requests:        0
-Total transferred:      63500 bytes
-HTML transferred:       27100 bytes
-Requests per second:    27.58 [#/sec] (mean)
-Time per request:       362.623 [ms] (mean)
-Time per request:       36.262 [ms] (mean, across all concurrent requests)
-Transfer rate:          17.10 [Kbytes/sec] received
+Non-2xx responses:      100
+Total transferred:      26200 bytes
+HTML transferred:       0 bytes
+Requests per second:    119.42 [#/sec] (mean)
+Time per request:       83.738 [ms] (mean)
+Time per request:       8.374 [ms] (mean, across all concurrent requests)
+Transfer rate:          30.55 [Kbytes/sec] received
 
 Connection Times (ms)
               min  mean[+/-sd] median   max
-Connect:        0    0   0.2      0       2
-Processing:   205  326 149.0    254     828
-Waiting:      205  326 149.0    254     827
-Total:        205  326 149.0    255     828
+Connect:        0    0   0.1      0       1
+Processing:    34   42  40.0     37     436
+Waiting:       33   42  39.9     37     436
+Total:         34   42  40.0     37     436
 
 Percentage of the requests served within a certain time (ms)
-  50%    255
-  66%    279
-  75%    335
-  80%    514
-  90%    561
-  95%    631
-  98%    827
-  99%    828
- 100%    828 (longest request)
+  50%     37
+  66%     39
+  75%     41
+  80%     42
+  90%     45
+  95%     47
+  98%     48
+  99%    436
+ 100%    436 (longest request)
 Testing GET /user/:id/workout
 This is ApacheBench, Version 2.3 <$Revision: 1923142 $>
 Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
@@ -192,36 +196,37 @@ Server Hostname:        localhost
 Server Port:            8080
 
 Document Path:          /api/user/67fe102c37c7092de433cbd2/workout
-Document Length:        801 bytes
+Document Length:        0 bytes
 
 Concurrency Level:      10
-Time taken for tests:   5.925 seconds
+Time taken for tests:   0.963 seconds
 Complete requests:      100
 Failed requests:        0
-Total transferred:      116500 bytes
-HTML transferred:       80100 bytes
-Requests per second:    16.88 [#/sec] (mean)
-Time per request:       592.500 [ms] (mean)
-Time per request:       59.250 [ms] (mean, across all concurrent requests)
-Transfer rate:          19.20 [Kbytes/sec] received
+Non-2xx responses:      100
+Total transferred:      26200 bytes
+HTML transferred:       0 bytes
+Requests per second:    103.85 [#/sec] (mean)
+Time per request:       96.294 [ms] (mean)
+Time per request:       9.629 [ms] (mean, across all concurrent requests)
+Transfer rate:          26.57 [Kbytes/sec] received
 
 Connection Times (ms)
               min  mean[+/-sd] median   max
-Connect:        0    0   0.3      0       2
-Processing:   333  541 205.2    524    1032
-Waiting:      333  541 205.2    524    1032
-Total:        333  541 205.2    525    1033
+Connect:        0    0   0.1      0       1
+Processing:    34   90 154.4     38     551
+Waiting:       33   89 154.2     38     550
+Total:         34   90 154.4     38     551
 
 Percentage of the requests served within a certain time (ms)
-  50%    525
-  66%    686
-  75%    719
-  80%    757
-  90%    775
-  95%    976
-  98%   1030
-  99%   1033
- 100%   1033 (longest request)
+  50%     38
+  66%     42
+  75%     43
+  80%     44
+  90%    550
+  95%    551
+  98%    551
+  99%    551
+ 100%    551 (longest request)
 Testing POST /user/:id/habit
 This is ApacheBench, Version 2.3 <$Revision: 1923142 $>
 Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
@@ -235,39 +240,40 @@ Server Hostname:        localhost
 Server Port:            8080
 
 Document Path:          /api/user/67fe102c37c7092de433cbd2/habit
-Document Length:        793 bytes
+Document Length:        26 bytes
 
 Concurrency Level:      10
-Time taken for tests:   1.785 seconds
+Time taken for tests:   0.996 seconds
 Complete requests:      100
 Failed requests:        0
-Total transferred:      115700 bytes
-Total body sent:        42500
-HTML transferred:       79300 bytes
-Requests per second:    56.02 [#/sec] (mean)
-Time per request:       178.494 [ms] (mean)
-Time per request:       17.849 [ms] (mean, across all concurrent requests)
-Transfer rate:          63.30 [Kbytes/sec] received
-                        23.25 kb/s sent
-                        86.55 kb/s total
+Non-2xx responses:      100
+Total transferred:      30100 bytes
+Total body sent:        24500
+HTML transferred:       2600 bytes
+Requests per second:    100.43 [#/sec] (mean)
+Time per request:       99.567 [ms] (mean)
+Time per request:       9.957 [ms] (mean, across all concurrent requests)
+Transfer rate:          29.52 [Kbytes/sec] received
+                        24.03 kb/s sent
+                        53.55 kb/s total
 
 Connection Times (ms)
               min  mean[+/-sd] median   max
 Connect:        0    0   0.2      0       1
-Processing:   108  161 108.2    128     526
-Waiting:      108  161 108.1    127     526
-Total:        108  162 108.2    128     526
+Processing:    34   94 157.2     40     579
+Waiting:       34   94 157.1     40     579
+Total:         34   95 157.3     40     579
 
 Percentage of the requests served within a certain time (ms)
-  50%    128
-  66%    132
-  75%    134
-  80%    135
-  90%    464
-  95%    466
-  98%    525
-  99%    526
- 100%    526 (longest request)
+  50%     40
+  66%     43
+  75%     48
+  80%     61
+  90%    538
+  95%    579
+  98%    579
+  99%    579
+ 100%    579 (longest request)
 Testing POST /user/:id/workout
 This is ApacheBench, Version 2.3 <$Revision: 1923142 $>
 Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
@@ -281,39 +287,40 @@ Server Hostname:        localhost
 Server Port:            8080
 
 Document Path:          /api/user/67fe102c37c7092de433cbd2/workout
-Document Length:        793 bytes
+Document Length:        26 bytes
 
 Concurrency Level:      10
-Time taken for tests:   1.912 seconds
+Time taken for tests:   0.931 seconds
 Complete requests:      100
 Failed requests:        0
-Total transferred:      115700 bytes
-Total body sent:        40600
-HTML transferred:       79300 bytes
-Requests per second:    52.29 [#/sec] (mean)
-Time per request:       191.230 [ms] (mean)
-Time per request:       19.123 [ms] (mean, across all concurrent requests)
-Transfer rate:          59.08 [Kbytes/sec] received
-                        20.73 kb/s sent
-                        79.82 kb/s total
+Non-2xx responses:      100
+Total transferred:      30100 bytes
+Total body sent:        22600
+HTML transferred:       2600 bytes
+Requests per second:    107.40 [#/sec] (mean)
+Time per request:       93.108 [ms] (mean)
+Time per request:       9.311 [ms] (mean, across all concurrent requests)
+Transfer rate:          31.57 [Kbytes/sec] received
+                        23.70 kb/s sent
+                        55.27 kb/s total
 
 Connection Times (ms)
               min  mean[+/-sd] median   max
-Connect:        0    0   0.3      0       2
-Processing:   114  174 108.3    128     498
-Waiting:      114  174 108.3    127     498
-Total:        114  174 108.3    128     498
+Connect:        0    0   0.2      0       1
+Processing:    33   87 146.4     38     559
+Waiting:       33   87 146.3     38     559
+Total:         33   87 146.4     38     560
 
 Percentage of the requests served within a certain time (ms)
-  50%    128
-  66%    130
-  75%    133
-  80%    228
-  90%    436
-  95%    495
-  98%    496
-  99%    498
- 100%    498 (longest request)
+  50%     38
+  66%     40
+  75%     44
+  80%     44
+  90%    514
+  95%    521
+  98%    522
+  99%    560
+ 100%    560 (longest request)
 Testing GET /habit
 This is ApacheBench, Version 2.3 <$Revision: 1923142 $>
 Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
@@ -327,36 +334,36 @@ Server Hostname:        localhost
 Server Port:            8080
 
 Document Path:          /api/habit
-Document Length:        8276 bytes
+Document Length:        19286 bytes
 
 Concurrency Level:      10
-Time taken for tests:   2.979 seconds
+Time taken for tests:   2.153 seconds
 Complete requests:      100
 Failed requests:        0
-Total transferred:      864000 bytes
-HTML transferred:       827600 bytes
-Requests per second:    33.57 [#/sec] (mean)
-Time per request:       297.897 [ms] (mean)
-Time per request:       29.790 [ms] (mean, across all concurrent requests)
-Transfer rate:          283.24 [Kbytes/sec] received
+Total transferred:      1939100 bytes
+HTML transferred:       1928600 bytes
+Requests per second:    46.45 [#/sec] (mean)
+Time per request:       215.280 [ms] (mean)
+Time per request:       21.528 [ms] (mean, across all concurrent requests)
+Transfer rate:          879.62 [Kbytes/sec] received
 
 Connection Times (ms)
               min  mean[+/-sd] median   max
-Connect:        0    0   0.1      0       1
-Processing:   168  267 101.8    232     535
-Waiting:      168  267 101.8    232     535
-Total:        168  267 101.8    232     535
+Connect:        0    0   0.1      0       0
+Processing:    74  194 194.2    106     772
+Waiting:       74  194 194.2    106     771
+Total:         74  194 194.3    106     772
 
 Percentage of the requests served within a certain time (ms)
-  50%    232
-  66%    253
-  75%    267
-  80%    398
-  90%    448
-  95%    484
-  98%    527
-  99%    535
- 100%    535 (longest request)
+  50%    106
+  66%    116
+  75%    130
+  80%    456
+  90%    576
+  95%    579
+  98%    696
+  99%    772
+ 100%    772 (longest request)
 Testing POST /habit
 This is ApacheBench, Version 2.3 <$Revision: 1923142 $>
 Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
@@ -373,34 +380,34 @@ Document Path:          /api/habit
 Document Length:        63 bytes
 
 Concurrency Level:      10
-Time taken for tests:   2.726 seconds
+Time taken for tests:   1.632 seconds
 Complete requests:      100
 Failed requests:        0
-Total transferred:      42700 bytes
-Total body sent:        38800
+Total transferred:      16800 bytes
+Total body sent:        20800
 HTML transferred:       6300 bytes
-Requests per second:    36.68 [#/sec] (mean)
-Time per request:       272.624 [ms] (mean)
-Time per request:       27.262 [ms] (mean, across all concurrent requests)
-Transfer rate:          15.30 [Kbytes/sec] received
-                        13.90 kb/s sent
-                        29.19 kb/s total
+Requests per second:    61.26 [#/sec] (mean)
+Time per request:       163.240 [ms] (mean)
+Time per request:       16.324 [ms] (mean, across all concurrent requests)
+Transfer rate:          10.05 [Kbytes/sec] received
+                        12.44 kb/s sent
+                        22.49 kb/s total
 
 Connection Times (ms)
               min  mean[+/-sd] median   max
-Connect:        0    0   0.4      0       2
-Processing:   115  253 215.4    133     690
-Waiting:      115  253 215.4    133     690
-Total:        115  254 215.3    135     690
+Connect:        0    0   0.1      0       1
+Processing:    37  156 248.4     43     837
+Waiting:       37  156 248.3     42     837
+Total:         37  156 248.4     43     837
 
 Percentage of the requests served within a certain time (ms)
-  50%    135
-  66%    146
-  75%    238
-  80%    627
-  90%    680
-  95%    689
-  98%    690
-  99%    690
- 100%    690 (longest request)
+  50%     43
+  66%     46
+  75%     49
+  80%    370
+  90%    801
+  95%    835
+  98%    835
+  99%    837
+ 100%    837 (longest request)
 ALL FUNCTIONAL ENDPOINTS TESTED
