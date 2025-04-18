@@ -1,0 +1,771 @@
+/* Modern color variables */
+:root {
+  --primary: #4f46e5;
+  --primary-light: #6366f1;
+  --primary-dark: #4338ca;
+  --secondary: #10b981;
+  --secondary-light: #34d399;
+  --secondary-dark: #059669;
+  --accent: #8b5cf6;
+  --accent-light: #a78bfa;
+  --accent-dark: #7c3aed;
+  --white: #ffffff;
+  --light: #f9fafb;
+  --gray-100: #f3f4f6;
+  --gray-200: #e5e7eb;
+  --gray-300: #d1d5db;
+  --gray-400: #9ca3af;
+  --gray-500: #6b7280;
+  --gray-600: #4b5563;
+  --gray-700: #374151;
+  --gray-800: #1f2937;
+  --gray-900: #111827;
+  
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-full: 9999px;
+  
+  --transition-fast: 150ms ease;
+  --transition-normal: 250ms ease;
+  --transition-slow: 350ms ease;
+}
+
+/* Base Container Styles */
+.home-container {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1440px;
+  padding: 1.5rem;
+  min-height: 100vh;
+  /* Removed background color to make it transparent */
+}
+
+@media (min-width: 640px) {
+  .home-container {
+    padding: 2rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .home-container {
+    padding: 2.5rem;
+  }
+}
+
+/* Dashboard Layout - Two Column Design */
+.dashboard-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 1024px) {
+  .dashboard-layout {
+    grid-template-columns: 2fr 1fr;
+  }
+}
+
+/* Content Area */
+.content-area {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Header Card Styles */
+.header-card {
+  /* background-image: linear-gradient(135deg, var(--primary), var(--accent)); */
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  color: var(--white);
+  box-shadow: var(--shadow-lg);
+  transition: transform var(--transition-normal);
+  overflow: hidden;
+  position: relative;
+}
+
+.header-card:hover {
+  transform: translateY(-4px);
+}
+
+.header-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at top right, rgba(255,255,255,0.2), transparent 60%);
+  pointer-events: none;
+}
+
+.header-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .header-content {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.user-welcome {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.user-icon-container {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: var(--white);
+  border-radius: var(--radius-full);
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.user-icon-container svg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.user-greeting h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.greeting-subtitle {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.875rem;
+}
+
+.progress-summary {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+@media (min-width: 768px) {
+  .progress-summary {
+    margin-top: 0;
+  }
+}
+
+.progress-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 0.75rem 1.25rem;
+  border-radius: var(--radius-md);
+  min-width: 6rem;
+  text-align: center;
+}
+
+.progress-label {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 0.25rem;
+}
+
+.progress-value {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+/* Tab Navigation Styles */
+.tab-container {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.25rem;
+  border-radius: var(--radius-md);
+  background-color: var(--gray-100);
+  width: fit-content;
+  z-index: 10;
+  position: relative;
+}
+
+.tab-button {
+  padding: 0.625rem 1.25rem;
+  border-radius: var(--radius-md);
+  font-weight: 500;
+  font-size: 0.875rem;
+  color: var(--gray-600);
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.tab-button:hover {
+  color: var(--primary);
+  background-color: rgba(99, 102, 241, 0.05);
+}
+
+.tab-button.active {
+  color: var(--primary);
+  background-color: var(--white);
+  box-shadow: var(--shadow-sm);
+}
+
+.tab-button span {
+  position: relative;
+  z-index: 2;
+}
+
+.tab-button.active::before {
+  content: '';
+  position: absolute;
+  bottom: -0.25rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1.5rem;
+  height: 0.25rem;
+  /* border-radius: 1rem 1rem 0 0; */
+  background-color: var(--primary);
+  transition: width var(--transition-normal);
+}
+
+.tab-button:hover.active::before {
+  width: 2rem;
+}
+
+/* Section Styles */
+.content-section {
+  margin-bottom: 2rem;
+}
+
+.section-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  letter-spacing: 0.01em;
+}
+
+.section-title::after {
+  content: '';
+  height: 1px;
+  flex: 1;
+  background-color: rgba(255, 255, 255, 0.2);
+  margin-left: 0.5rem;
+}
+
+/* Card Container and Grid */
+.card-container {
+  width: 100%;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  .cards-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1280px) {
+  .cards-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* Card Styles */
+.habit-card, .workout-card {
+  background: rgba(255, 255, 255, 0.01);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: var(--radius-md);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.08),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: float 6s ease-in-out infinite;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.habit-card:hover, .workout-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.12),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.02);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Add glow effect */
+.habit-card::before, .workout-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  background: linear-gradient(180deg, 
+      rgba(255, 255, 255, 0.08) 0%, 
+      rgba(255, 255, 255, 0.03) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 0;
+}
+
+.habit-card:hover::before, .workout-card:hover::before {
+  opacity: 1;
+}
+
+/* Add stagger delay to cards */
+.cards-grid > *:nth-child(1) { animation-delay: 0s; }
+.cards-grid > *:nth-child(2) { animation-delay: 0.1s; }
+.cards-grid > *:nth-child(3) { animation-delay: 0.2s; }
+.cards-grid > *:nth-child(4) { animation-delay: 0.3s; }
+.cards-grid > *:nth-child(5) { animation-delay: 0.4s; }
+.habit-card {
+  display: flex;
+  align-items: flex-start;
+  padding: 1.25rem;
+  gap: 1.25rem;  /* Increased gap */
+  box-sizing: border-box;
+}
+.workout-card {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  min-height: 180px;
+  height: 100%;
+  padding: 0; /* Remove padding here, handled by inner elements */
+  overflow: hidden;
+  box-sizing: border-box;
+  border-left-width: 4px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.card-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 1.25rem 1.25rem 0.75rem;
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  box-sizing: border-box;
+  gap: 0.5rem;
+  transition: all var(--transition-normal);
+  border-bottom: 1px solid transparent;
+}
+
+.workout-card:hover .card-header {
+  padding-top: 1.25rem;
+  border-bottom-color: rgba(229, 231, 235, 0.3);
+}
+
+.workout-card.completed:hover .card-header {
+  border-bottom-color: rgba(16, 185, 129, 0.1);
+}
+.card-body {
+  padding: 0;
+  word-break: break-word;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* Allow 3 lines for better readability */
+  -webkit-box-orient: vertical;
+  position: relative;
+  margin-top: 0.25rem; /* Add slight margin for separation */
+  transition: all var(--transition-normal);
+  flex: 1;
+}
+
+.workout-card:hover .card-body {
+  padding-top: 0.5rem;
+}
+
+/* Add gradient fade for overflow text */
+.card-body::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1.2rem;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.1) 30%, transparent 100%);
+  pointer-events: none;
+  opacity: 0.95;
+}
+
+.workout-card:hover .card-body::after {
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.15) 30%, transparent 100%);
+  height: 1rem;
+}
+
+.workout-card.completed .card-body::after {
+  background: linear-gradient(to top, rgba(79, 70, 229, 0.05) 30%, transparent 100%);
+}
+
+.workout-card.completed:hover .card-body::after {
+  background: linear-gradient(to top, rgba(79, 70, 229, 0.08) 30%, transparent 100%);
+  height: 1rem;
+}
+
+.workout-card.completed, .habit-card.completed {
+  background-color: rgba(79, 70, 229, 0.01);
+  border-left-color: var(--secondary);
+  box-shadow: 0 8px 32px rgba(79, 70, 229, 0.08), 0 4px 8px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(25px);
+  animation: float 6s ease-in-out infinite, softGlow 4s infinite;
+}
+
+.workout-card.pending, .habit-card.pending {
+  border-left-color: var(--primary);
+  box-shadow: 0 1px 3px rgba(79, 70, 229, 0.05);
+}
+
+.workout-card.completed:hover, .habit-card.completed:hover {
+  background-color: rgba(79, 70, 229, 0.015);
+  box-shadow: 0 20px 40px rgba(79, 70, 229, 0.15), 0 8px 16px rgba(0, 0, 0, 0.15);
+  transform: translateY(-8px) scale(1.02);
+}
+
+.workout-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 100%;
+  opacity: 0.2;
+  background-color: var(--primary);
+  transition: all var(--transition-normal);
+  z-index: 1;
+}
+
+.workout-title {
+  font-weight: 700;
+  color: #ffffff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;
+  width: 100%;
+  font-size: 1.1rem;
+  line-height: 1.4;
+  margin: 0;
+  padding-right: 6.5rem; /* Adjusted padding for badge */
+  display: block;
+  transition: all var(--transition-normal);
+  margin-bottom: 0.25rem; /* Add small margin */
+}
+
+.habit-title {
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin: 0;
+  padding: 0.25rem 0;  /* Consistent padding */
+  color: #ffffff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;
+  width: 100%;
+  transition: all var(--transition-normal);
+  display: block;
+}
+
+.workout-card:hover .workout-title {
+  transform: translateY(-1px);
+}
+
+.habit-title.completed, .workout-title.completed {
+  color: rgba(16, 185, 129, 0.9);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+.workout-description {
+  color: #ffffff;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
+  margin: 0;
+  padding: 0.75rem 1.25rem 1.25rem; /* Adjusted padding */
+  max-height: 4.8em;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  position: relative;
+  z-index: 2;
+  transition: all var(--transition-normal);
+}
+
+.workout-card:hover .workout-description {
+  color: #ffffff;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); /* Enhanced text shadow on hover */
+}
+
+.workout-card.completed .workout-description {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.workout-card.completed:hover .workout-description {
+  color: rgba(255, 255, 255, 0.95);
+}
+
+/* Custom Checkbox Styles */
+.card-checkbox {
+  position: relative;
+  flex-shrink: 0;
+  margin-top: 0.25rem;
+}
+.custom-checkbox {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.checkbox-label {
+  display: inline-block;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: var(--radius-sm);
+  border: 2px solid var(--gray-300);
+  background-color: var(--white);
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  position: relative;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
+}
+
+.custom-checkbox:checked + .checkbox-label {
+  background-color: var(--secondary);
+  border-color: var(--secondary);
+}
+
+.custom-checkbox:focus + .checkbox-label {
+  box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.2);
+}
+
+.checkbox-label::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 1px;
+  background-color: transparent;
+  transition: all var(--transition-normal);
+}
+
+.custom-checkbox:checked + .checkbox-label::after {
+  content: '';
+  border-radius: 0;
+  width: 0.3rem;
+  height: 0.6rem;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: translate(-50%, -60%) rotate(45deg) scale(1);
+}
+
+/* Card Content & Meta */
+.card-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0.5rem 0.25rem; /* Adjusted padding */
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 2;
+}
+
+.card-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+}
+
+/* Badge Styles */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.625rem;
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.badge-gray {
+  background-color: var(--gray-100);
+  color: var(--gray-700);
+}
+.badge-blue {
+  background-color: rgba(79, 70, 229, 0.2);
+  color: var(--primary-dark);
+  margin-left: auto;
+  flex-shrink: 0;
+  font-size: 0.75rem;
+  padding: 0.25rem 0.7rem;
+  transition: all var(--transition-normal);
+  border: 1px solid rgba(79, 70, 229, 0.1);
+  position: absolute; /* Position absolute to avoid affecting title */
+  right: 1.25rem; /* Adjusted spacing */
+  top: 1.25rem;
+  font-weight: 600;
+  z-index: 3;
+}
+
+.workout-card:hover .badge-blue {
+  background-color: rgba(79, 70, 229, 0.2);
+  transform: scale(1.05);
+}
+
+/* Empty State */
+.empty-state-card {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 3rem 2rem;
+  background-color: var(--white);
+  border-radius: var(--radius-md);
+  border: 1px dashed var(--gray-300);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.empty-icon {
+  width: 3rem;
+  height: 3rem;
+  color: var(--gray-400);
+}
+
+.empty-state-card p {
+  color: var(--gray-500);
+  font-size: 0.875rem;
+  max-width: 20rem;
+  margin: 0 auto;
+}
+
+/* Image Sidebar */
+.image-sidebar {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  position: sticky;
+  top: 2rem;
+  display: flex;
+  flex-direction: column;
+  height: max-content;
+  max-height: calc(100vh - 4rem);
+  border: 1px solid var(--gray-200);
+  backdrop-filter: blur(6px);
+}
+
+.home-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  aspect-ratio: 3/4;
+}
+
+.motivational-text {
+  padding: 1.5rem;
+  text-align: center;
+  background-color: rgba(249, 250, 251, 0.8);
+  border-top: 1px solid rgba(229, 231, 235, 0.5);
+}
+
+.motivational-text h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--gray-800);
+  margin-bottom: 0.5rem;
+}
+
+.motivational-text p {
+  color: var(--gray-600);
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1023px) {
+  .image-sidebar {
+    display: none;
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.habit-card, .workout-card {
+  animation: fadeIn var(--transition-normal);
+}
+
+.habit-card:nth-child(odd) {
+  animation-delay: 50ms;
+}
+
+.habit-card:nth-child(even) {
+  animation-delay: 100ms;
+}
+
+.workout-card:nth-child(odd) {
+  animation-delay: 150ms;
+}
+
+.workout-card:nth-child(even) {
+  animation-delay: 200ms;
+}
+
+/* Enhanced animations */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-5px); }
+    100% { transform: translateY(0px); }
+}
+
+@keyframes softGlow {
+    0% { box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08); }
+    50% { box-shadow: 0 12px 40px rgba(79, 70, 229, 0.1); }
+    100% { box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08); }
+}

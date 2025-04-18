@@ -1,7 +1,8 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
   text-align: center;
 }
 
@@ -39,4 +40,247 @@
 
 .read-the-docs {
   color: #888;
+}
+}
+
+/* Global styling */
+.App {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #07103d;
+  color: white;
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+/* Root container adjustments */
+#root {
+  width: 100%;
+  max-width: 70%;
+  margin: 0;
+  padding: 0;
+  text-align: initial;
+}
+
+/* Navigation styles */
+.nav-container {
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 0;
+  position: fixed;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 64px;
+  padding: 0 1.5rem;
+}
+
+.nav-brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+  letter-spacing: 0.5px;
+  /* No left margin needed */
+}
+
+.brand-container {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.brand-icon {
+  color: white;
+}
+
+.nav-menu {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.nav-item {
+  position: relative;
+}
+
+.nav-link {
+  color: rgba(255, 255, 255, 0.7);
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  transition: all 0.2s;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.nav-link:hover {
+  color: white;
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+.nav-link.active {
+  color: white;
+  background-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.logout-btn {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  transition: all 0.2s;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.logout-btn:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.content-container {
+  padding-top: 80px; /* Space for fixed navbar */
+  width: 100%;
+  padding-left: 15rem;
+  /* padding-right: 1rem; */
+}
+
+/* Tab container styling */
+.tab-container {
+  display: flex;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 0.5rem;
+  padding: 0.25rem;
+  margin-bottom: 2rem;
+  width: fit-content;
+}
+
+.tab-button {
+  padding: 0.5rem 1rem;
+  background: none;
+  border: none;
+  border-radius: 0.375rem;
+  color: rgba(255, 255, 255, 0.8);
+  cursor: pointer;
+  transition: all 0.2s;
+  font-weight: 500;
+}
+
+.tab-button:hover {
+  color: white;
+}
+
+.tab-button.active {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Card styling for consistency */
+.card {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 0.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .nav-inner {
+    padding: 0 1.5rem;
+  }
+  
+  .content-container {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+  
+  .nav-menu {
+    gap: 0.5rem;
+  }
+  
+  .nav-link, .logout-btn {
+    padding: 0.4rem 0.75rem;
+    font-size: 0.9rem;
+  }
+  
+  .nav-brand {
+    font-size: 1.25rem;
+  }
+
+  .home-image-container {
+  display: flex;               /* Added */
+  justify-content: space-between; /* Added */
+  align-items: flex-end;     /* Added */
+  gap: 2rem;                   /* Optional: space between body and image */
+  position: relative; 
+}
+}
+
+@media (max-width: 480px) {
+  .nav-inner {
+    padding: 0 1rem;
+  }
+  
+  .content-container {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+  
+  .nav-link, .logout-btn {
+    padding: 0.35rem 0.6rem;
+    font-size: 0.85rem;
+  }
+  
+  .tab-button {
+    padding: 0.4rem 0.75rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* Home page image container styles */
+.home-image-container {
+  display: flex;               /* Added */
+  justify-content: space-between; /* Added */
+  align-items: flex-end;     /* Added */
+  gap: 2rem;                   /* Optional: space between body and image */
+  position: relative; 
+}
+
+.home-image-wrapper {
+  position: sticky;
+  top: 100px;
+  display: flex;
+  justify-content: flex-end;
+  width: 50%;
+}
+
+.home-image {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Update media queries for responsive behavior */
+@media (max-width: 768px) {
+  .home-image-wrapper {
+    display: none;
+  }
 }

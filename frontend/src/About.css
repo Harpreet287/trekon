@@ -1,0 +1,242 @@
+/* About page styles */
+.about-container {
+  width: 100%;
+  padding-top: 80px; /* Space for fixed navbar, matching content-container */
+  color: white;
+}
+
+.about-header {
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.about-header h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  background: linear-gradient(90deg, #ffffff, #a9b3ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+
+.header-underline {
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, #646cff, #a9b3ff);
+  margin: 0 auto;
+  border-radius: 2px;
+}
+
+.about-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.about-card {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 0.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 2rem;
+  margin-bottom: 2rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.mission-card {
+  text-align: center;
+  background-color: rgba(100, 108, 255, 0.1);
+}
+
+.mission-card h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.mission-card p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.about-sections {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.about-card h2 {
+  font-size: 1.7rem;
+  margin-bottom: 1.5rem;
+  color: #a9b3ff;
+}
+
+.about-card p {
+  margin-bottom: 1.2rem;
+  line-height: 1.6;
+}
+
+.feature-list {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0;
+}
+
+.feature-list li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.feature-icon {
+  color: #646cff;
+  font-size: 1.2rem;
+  margin-right: 1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background-color: rgba(100, 108, 255, 0.2);
+  border-radius: 50%;
+}
+
+.feature-text {
+  flex: 1;
+}
+
+.team-section {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.team-section h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #a9b3ff;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.team-member {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.team-member:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+  border-color: rgba(100, 108, 255, 0.3);
+}
+
+.member-avatar {
+  width: 100px;
+  height: 100px;
+  background-color: rgba(100, 108, 255, 0.2);
+  border-radius: 50%;
+  margin: 0 auto 1rem;
+}
+
+.team-member h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.team-member p {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem;
+}
+
+.contact-card {
+  text-align: center;
+  background-color: rgba(169, 179, 255, 0.1);
+}
+
+.contact-button-container {
+  margin-top: 2rem;
+}
+
+.contact-button {
+  background: linear-gradient(90deg, #646cff, #a9b3ff);
+  color: white;
+  border: none;
+  padding: 0.8rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.contact-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Responsive design */
+@media (max-width: 992px) {
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .about-sections {
+    grid-template-columns: 1fr;
+  }
+  
+  .about-header h1 {
+    font-size: 2rem;
+  }
+  
+  .mission-card p,
+  .about-card p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .team-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .about-header h1 {
+    font-size: 1.8rem;
+  }
+  
+  .about-card {
+    padding: 1.5rem;
+  }
+  
+  .about-card h2,
+  .team-section h2 {
+    font-size: 1.5rem;
+  }
+  
+  .mission-card p {
+    font-size: 0.95rem;
+  }
+}
+
