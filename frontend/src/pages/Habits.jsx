@@ -154,7 +154,7 @@ function Habits() {
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ delay: 0.3, duration: 0.4 }}
                 >
-                    <h1>Habits for {userData.name}</h1>
+                    <h1>Habits for {user.firstName}</h1>
                 </motion.div>
                 
                 <div className="habits-input-section">

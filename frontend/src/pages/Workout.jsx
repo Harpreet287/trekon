@@ -95,63 +95,63 @@ function Workout() {
             console.log("%c Fetching all workouts...", "color: #0ea5e9; font-weight: bold;");
             
             // Create mock data if in development mode
-            if (process.env.NODE_ENV === 'development') {
-                console.warn("%c DEVELOPMENT MODE: Using mock workout data", "background: #f59e0b; color: black; padding: 2px 4px;");
-                const mockWorkouts = [
-                    {
-                        id: 1,
-                        name: "Push-Up Challenge",
-                        description: "Complete 3 sets of push-ups with 30 seconds rest between sets. Focus on proper form with chest touching the ground and fully extended arms at the top.",
-                        type: "Strength",
-                        target: "Upper Body",
-                        difficulty: "Medium"
-                    },
-                    {
-                        id: 2,
-                        name: "Mountain Climber HIIT",
-                        description: "Perform mountain climbers for 45 seconds, followed by 15 seconds rest. Repeat for 5 rounds. Keep your core tight and maintain a steady pace.",
-                        type: "Cardio",
-                        target: "Full Body",
-                        difficulty: "Hard"
-                    },
-                    {
-                        id: 3,
-                        name: "Plank Progression",
-                        description: "Hold a plank position for 60 seconds. For beginners, drop to knees if needed. Advanced users can try side planks and plank shoulder taps.",
-                        type: "Strength",
-                        target: "Core",
-                        difficulty: "Medium"
-                    },
-                    {
-                        id: 4,
-                        name: "Bodyweight Squat Routine",
-                        description: "Complete 4 sets of 15 bodyweight squats. Focus on proper form with knees tracking over toes and weight in heels. Add jump squats for extra challenge.",
-                        type: "Strength",
-                        target: "Lower Body",
-                        difficulty: "Easy"
-                    },
-                    {
-                        id: 5,
-                        name: "Burpee Blast",
-                        description: "Complete as many burpees as possible in 2 minutes. Rest for 1 minute and repeat twice more. Focus on controlled movements and full extension.",
-                        type: "Cardio",
-                        target: "Full Body",
-                        difficulty: "Hard"
-                    },
-                    {
-                        id: 6,
-                        name: "Yoga Flow Sequence",
-                        description: "Follow a 10-minute sequence of sun salutations, warrior poses, and gentle stretches. Focus on breathing and maintaining proper alignment throughout.",
-                        type: "Flexibility",
-                        target: "Full Body",
-                        difficulty: "Easy"
-                    }
-                ];
-                setAllWorkouts(mockWorkouts);
-                setError(null);
-                setIsLoading(false);
-                return;
-            }
+            // if (process.env.NODE_ENV === 'development') {
+            //     console.warn("%c DEVELOPMENT MODE: Using mock workout data", "background: #f59e0b; color: black; padding: 2px 4px;");
+            //     const mockWorkouts = [
+            //         {
+            //             id: 1,
+            //             name: "Push-Up Challenge",
+            //             description: "Complete 3 sets of push-ups with 30 seconds rest between sets. Focus on proper form with chest touching the ground and fully extended arms at the top.",
+            //             type: "Strength",
+            //             target: "Upper Body",
+            //             difficulty: "Medium"
+            //         },
+            //         {
+            //             id: 2,
+            //             name: "Mountain Climber HIIT",
+            //             description: "Perform mountain climbers for 45 seconds, followed by 15 seconds rest. Repeat for 5 rounds. Keep your core tight and maintain a steady pace.",
+            //             type: "Cardio",
+            //             target: "Full Body",
+            //             difficulty: "Hard"
+            //         },
+            //         {
+            //             id: 3,
+            //             name: "Plank Progression",
+            //             description: "Hold a plank position for 60 seconds. For beginners, drop to knees if needed. Advanced users can try side planks and plank shoulder taps.",
+            //             type: "Strength",
+            //             target: "Core",
+            //             difficulty: "Medium"
+            //         },
+            //         {
+            //             id: 4,
+            //             name: "Bodyweight Squat Routine",
+            //             description: "Complete 4 sets of 15 bodyweight squats. Focus on proper form with knees tracking over toes and weight in heels. Add jump squats for extra challenge.",
+            //             type: "Strength",
+            //             target: "Lower Body",
+            //             difficulty: "Easy"
+            //         },
+            //         {
+            //             id: 5,
+            //             name: "Burpee Blast",
+            //             description: "Complete as many burpees as possible in 2 minutes. Rest for 1 minute and repeat twice more. Focus on controlled movements and full extension.",
+            //             type: "Cardio",
+            //             target: "Full Body",
+            //             difficulty: "Hard"
+            //         },
+            //         {
+            //             id: 6,
+            //             name: "Yoga Flow Sequence",
+            //             description: "Follow a 10-minute sequence of sun salutations, warrior poses, and gentle stretches. Focus on breathing and maintaining proper alignment throughout.",
+            //             type: "Flexibility",
+            //             target: "Full Body",
+            //             difficulty: "Easy"
+            //         }
+            //     ];
+            //     setAllWorkouts(mockWorkouts);
+            //     setError(null);
+            //     setIsLoading(false);
+            //     return;
+            // }
             
             setIsLoading(true);
             
@@ -164,7 +164,7 @@ function Workout() {
             
             try {
                 // Use the correct endpoint structure to match backend
-                const fullUrl = `${apiBaseUrl}/api/workout`;
+                const fullUrl = `${apiBaseUrl}/api/workouts`;
                 console.log(`%c Calling API endpoint: ${fullUrl}`, "background: #6366f1; color: white; padding: 2px 4px;");
                 
                 // Make direct axios call to ensure headers are correctly set
@@ -196,58 +196,58 @@ function Workout() {
                     // If we have no data or empty array
                     if (workoutsData.length === 0) {
                         if (process.env.NODE_ENV === 'development') {
-                            console.warn("%c DEVELOPMENT MODE: No workout data found, using mock data", "background: #f59e0b; color: black; padding: 2px 4px;");
-                            const mockWorkouts = [
-                                {
-                                    id: 1,
-                                    name: "Push-Up Challenge",
-                                    description: "Complete 3 sets of push-ups with 30 seconds rest between sets. Focus on proper form with chest touching the ground and fully extended arms at the top.",
-                                    type: "Strength",
-                                    target: "Upper Body",
-                                    difficulty: "Medium"
-                                },
-                                {
-                                    id: 2,
-                                    name: "Mountain Climber HIIT",
-                                    description: "Perform mountain climbers for 45 seconds, followed by 15 seconds rest. Repeat for 5 rounds. Keep your core tight and maintain a steady pace.",
-                                    type: "Cardio",
-                                    target: "Full Body",
-                                    difficulty: "Hard"
-                                },
-                                {
-                                    id: 3,
-                                    name: "Plank Progression",
-                                    description: "Hold a plank position for 60 seconds. For beginners, drop to knees if needed. Advanced users can try side planks and plank shoulder taps.",
-                                    type: "Strength",
-                                    target: "Core",
-                                    difficulty: "Medium"
-                                },
-                                {
-                                    id: 4,
-                                    name: "Bodyweight Squat Routine",
-                                    description: "Complete 4 sets of 15 bodyweight squats. Focus on proper form with knees tracking over toes and weight in heels. Add jump squats for extra challenge.",
-                                    type: "Strength",
-                                    target: "Lower Body",
-                                    difficulty: "Easy"
-                                },
-                                {
-                                    id: 5,
-                                    name: "Burpee Blast",
-                                    description: "Complete as many burpees as possible in 2 minutes. Rest for 1 minute and repeat twice more. Focus on controlled movements and full extension.",
-                                    type: "Cardio",
-                                    target: "Full Body",
-                                    difficulty: "Hard"
-                                },
-                                {
-                                    id: 6,
-                                    name: "Yoga Flow Sequence",
-                                    description: "Follow a 10-minute sequence of sun salutations, warrior poses, and gentle stretches. Focus on breathing and maintaining proper alignment throughout.",
-                                    type: "Flexibility",
-                                    target: "Full Body",
-                                    difficulty: "Easy"
-                                }
-                            ];
-                            setAllWorkouts(mockWorkouts);
+                        //     console.warn("%c DEVELOPMENT MODE: No workout data found, using mock data", "background: #f59e0b; color: black; padding: 2px 4px;");
+                        //     const mockWorkouts = [
+                        //         {
+                        //             id: 1,
+                        //             name: "Push-Up Challenge",
+                        //             description: "Complete 3 sets of push-ups with 30 seconds rest between sets. Focus on proper form with chest touching the ground and fully extended arms at the top.",
+                        //             type: "Strength",
+                        //             target: "Upper Body",
+                        //             difficulty: "Medium"
+                        //         },
+                        //         {
+                        //             id: 2,
+                        //             name: "Mountain Climber HIIT",
+                        //             description: "Perform mountain climbers for 45 seconds, followed by 15 seconds rest. Repeat for 5 rounds. Keep your core tight and maintain a steady pace.",
+                        //             type: "Cardio",
+                        //             target: "Full Body",
+                        //             difficulty: "Hard"
+                        //         },
+                        //         {
+                        //             id: 3,
+                        //             name: "Plank Progression",
+                        //             description: "Hold a plank position for 60 seconds. For beginners, drop to knees if needed. Advanced users can try side planks and plank shoulder taps.",
+                        //             type: "Strength",
+                        //             target: "Core",
+                        //             difficulty: "Medium"
+                        //         },
+                        //         {
+                        //             id: 4,
+                        //             name: "Bodyweight Squat Routine",
+                        //             description: "Complete 4 sets of 15 bodyweight squats. Focus on proper form with knees tracking over toes and weight in heels. Add jump squats for extra challenge.",
+                        //             type: "Strength",
+                        //             target: "Lower Body",
+                        //             difficulty: "Easy"
+                        //         },
+                        //         {
+                        //             id: 5,
+                        //             name: "Burpee Blast",
+                        //             description: "Complete as many burpees as possible in 2 minutes. Rest for 1 minute and repeat twice more. Focus on controlled movements and full extension.",
+                        //             type: "Cardio",
+                        //             target: "Full Body",
+                        //             difficulty: "Hard"
+                        //         },
+                        //         {
+                        //             id: 6,
+                        //             name: "Yoga Flow Sequence",
+                        //             description: "Follow a 10-minute sequence of sun salutations, warrior poses, and gentle stretches. Focus on breathing and maintaining proper alignment throughout.",
+                        //             type: "Flexibility",
+                        //             target: "Full Body",
+                        //             difficulty: "Easy"
+                        //         }
+                        //     ];
+                        //     setAllWorkouts(mockWorkouts);
                         } else {
                             console.warn("No workout data found in API response");
                             setAllWorkouts([]);
@@ -292,59 +292,59 @@ function Workout() {
                 
                 // If in development mode, create mock data
                 if (process.env.NODE_ENV === 'development') {
-                    console.warn("%c DEVELOPMENT MODE: Using mock data for development", "background: #f59e0b; color: black; padding: 2px 4px;");
-                    const mockWorkouts = [
-                        {
-                            id: 1,
-                            name: "Push-Up Challenge",
-                            description: "Complete 3 sets of push-ups with 30 seconds rest between sets. Focus on proper form with chest touching the ground and fully extended arms at the top.",
-                            type: "Strength",
-                            target: "Upper Body",
-                            difficulty: "Medium"
-                        },
-                        {
-                            id: 2,
-                            name: "Mountain Climber HIIT",
-                            description: "Perform mountain climbers for 45 seconds, followed by 15 seconds rest. Repeat for 5 rounds. Keep your core tight and maintain a steady pace.",
-                            type: "Cardio",
-                            target: "Full Body",
-                            difficulty: "Hard"
-                        },
-                        {
-                            id: 3,
-                            name: "Plank Progression",
-                            description: "Hold a plank position for 60 seconds. For beginners, drop to knees if needed. Advanced users can try side planks and plank shoulder taps.",
-                            type: "Strength",
-                            target: "Core",
-                            difficulty: "Medium"
-                        },
-                        {
-                            id: 4,
-                            name: "Bodyweight Squat Routine",
-                            description: "Complete 4 sets of 15 bodyweight squats. Focus on proper form with knees tracking over toes and weight in heels. Add jump squats for extra challenge.",
-                            type: "Strength",
-                            target: "Lower Body",
-                            difficulty: "Easy"
-                        },
-                        {
-                            id: 5,
-                            name: "Burpee Blast",
-                            description: "Complete as many burpees as possible in 2 minutes. Rest for 1 minute and repeat twice more. Focus on controlled movements and full extension.",
-                            type: "Cardio",
-                            target: "Full Body",
-                            difficulty: "Hard"
-                        },
-                        {
-                            id: 6,
-                            name: "Yoga Flow Sequence",
-                            description: "Follow a 10-minute sequence of sun salutations, warrior poses, and gentle stretches. Focus on breathing and maintaining proper alignment throughout.",
-                            type: "Flexibility",
-                            target: "Full Body",
-                            difficulty: "Easy"
-                        }
-                    ];
-                    setAllWorkouts(mockWorkouts);
-                    setError(null); // Clear error in dev mode
+                    // console.warn("%c DEVELOPMENT MODE: Using mock data for development", "background: #f59e0b; color: black; padding: 2px 4px;");
+                    // const mockWorkouts = [
+                    //     {
+                    //         id: 1,
+                    //         name: "Push-Up Challenge",
+                    //         description: "Complete 3 sets of push-ups with 30 seconds rest between sets. Focus on proper form with chest touching the ground and fully extended arms at the top.",
+                    //         type: "Strength",
+                    //         target: "Upper Body",
+                    //         difficulty: "Medium"
+                    //     },
+                    //     {
+                    //         id: 2,
+                    //         name: "Mountain Climber HIIT",
+                    //         description: "Perform mountain climbers for 45 seconds, followed by 15 seconds rest. Repeat for 5 rounds. Keep your core tight and maintain a steady pace.",
+                    //         type: "Cardio",
+                    //         target: "Full Body",
+                    //         difficulty: "Hard"
+                    //     },
+                    //     {
+                    //         id: 3,
+                    //         name: "Plank Progression",
+                    //         description: "Hold a plank position for 60 seconds. For beginners, drop to knees if needed. Advanced users can try side planks and plank shoulder taps.",
+                    //         type: "Strength",
+                    //         target: "Core",
+                    //         difficulty: "Medium"
+                    //     },
+                    //     {
+                    //         id: 4,
+                    //         name: "Bodyweight Squat Routine",
+                    //         description: "Complete 4 sets of 15 bodyweight squats. Focus on proper form with knees tracking over toes and weight in heels. Add jump squats for extra challenge.",
+                    //         type: "Strength",
+                    //         target: "Lower Body",
+                    //         difficulty: "Easy"
+                    //     },
+                    //     {
+                    //         id: 5,
+                    //         name: "Burpee Blast",
+                    //         description: "Complete as many burpees as possible in 2 minutes. Rest for 1 minute and repeat twice more. Focus on controlled movements and full extension.",
+                    //         type: "Cardio",
+                    //         target: "Full Body",
+                    //         difficulty: "Hard"
+                    //     },
+                    //     {
+                    //         id: 6,
+                    //         name: "Yoga Flow Sequence",
+                    //         description: "Follow a 10-minute sequence of sun salutations, warrior poses, and gentle stretches. Focus on breathing and maintaining proper alignment throughout.",
+                    //         type: "Flexibility",
+                    //         target: "Full Body",
+                    //         difficulty: "Easy"
+                    //     }
+                    // ];
+                    // setAllWorkouts(mockWorkouts);
+                    // setError(null); // Clear error in dev mode
                 } else {
                     setError(errorMessage);
                 }
@@ -373,11 +373,11 @@ function Workout() {
             console.log("%c Fetching user workouts for user ID:", "color: #0ea5e9; font-weight: bold;", uid);
             
             // In development mode, just use an empty set
-            if (process.env.NODE_ENV === 'development') {
-                console.warn("%c DEVELOPMENT MODE: Using empty user workouts", "background: #f59e0b; color: black; padding: 2px 4px;");
-                setUserWorkouts(new Set());
-                return;
-            }
+            // if (process.env.NODE_ENV === 'development') {
+            //     console.warn("%c DEVELOPMENT MODE: Using empty user workouts", "background: #f59e0b; color: black; padding: 2px 4px;");
+            //     setUserWorkouts(new Set());
+            //     return;
+            // }
             
             // Get token for authorization
             const token = localStorage.getItem('token');
@@ -444,42 +444,44 @@ function Workout() {
     const handleToggle = async (workoutId, difficulty) => {
         const isSelected = userWorkouts.has(workoutId);
         // In development mode, just simulate the selection without API call
-        if (process.env.NODE_ENV === 'development') {
-            console.log("%c DEVELOPMENT MODE: Simulating workout toggle", "background: #f59e0b; color: black; padding: 2px 4px;");
+        // if (process.env.NODE_ENV === 'development') {
+        //     console.log("%c DEVELOPMENT MODE: Simulating workout toggle", "background: #f59e0b; color: black; padding: 2px 4px;");
             
-            // Add to loading set first
-            setLoadingWorkouts(prev => new Set(prev).add(workoutId));
+        //     // Add to loading set first
+        //     setLoadingWorkouts(prev => new Set(prev).add(workoutId));
             
-            // Simulate API delay
-            setTimeout(() => {
-                if (isSelected) {
-                    setUserWorkouts(prev => {
-                        const next = new Set(prev);
-                        next.delete(workoutId);
-                        return next;
-                    });
-                } else {
-                    setUserWorkouts(prev => {
-                        const next = new Set(prev);
-                        next.add(workoutId);
-                        return next;
-                    });
-                }
+        //     // Simulate API delay
+        //     setTimeout(() => {
+        //         if (isSelected) {
+        //             setUserWorkouts(prev => {
+        //                 const next = new Set(prev);
+        //                 next.delete(workoutId);
+        //                 return next;
+        //             });
+        //         } else {
+        //             setUserWorkouts(prev => {
+        //                 const next = new Set(prev);
+        //                 next.add(workoutId);
+        //                 return next;
+        //             });
+        //         }
                 
-                // Remove from loading set after delay
-                setLoadingWorkouts(prev => {
-                    const next = new Set(prev);
-                    next.delete(workoutId);
-                    return next;
-                });
-            }, 800);
+        //         // Remove from loading set after delay
+        //         setLoadingWorkouts(prev => {
+        //             const next = new Set(prev);
+        //             next.delete(workoutId);
+        //             return next;
+        //         });
+        //     }, 800);
             
-            return;
-        }
+        //     return;
+        // }
         
         // For production, use the actual API with consistent endpoint structure
         // Use the consistent API endpoint structure for production
         const fullUrl = `${apiBaseUrl}/api/user/${user.id}/workout`;
+        console.log(fullUrl);
+        console.log("MMM");
         // Add to loading set
         setLoadingWorkouts(prev => new Set(prev).add(workoutId));
 
@@ -503,6 +505,7 @@ function Workout() {
                     return next;
                 });
             } else {
+                console.log("HII");
                 // Use axios directly for consistency
                 await axios.post(fullUrl, 
                     { workoutId, difficulty },

@@ -74,15 +74,45 @@ public class UserController {
     public ResponseEntity<User> updateUser(@PathVariable String id, @RequestBody Map<String, Object> updates) {
         User user = userRepository.findById(id)
                 .orElseThrow(() -> new UsernameNotFoundException("User not found"));
-
+    
         // Only update fields you want to allow
         if (updates.containsKey("firstName")) user.setFirstName((String) updates.get("firstName"));
         if (updates.containsKey("lastName")) user.setLastName((String) updates.get("lastName"));
-        if (updates.containsKey("age")) user.setAge((Integer) updates.get("age"));
-        if (updates.containsKey("height")) user.setHeight(((Number) updates.get("height")).doubleValue());
-        if (updates.containsKey("weight")) user.setWeight(((Number) updates.get("weight")).doubleValue());
+        
+        // Handle age with type checking
+        if (updates.containsKey("age")) {
+            Object ageValue = updates.get("age");
+            if (ageValue instanceof String) {
+                user.setAge(Integer.parseInt((String) ageValue));
+            } else if (ageValue instanceof Integer) {
+                user.setAge((Integer) ageValue);
+            } else if (ageValue instanceof Number) {
+                user.setAge(((Number) ageValue).intValue());
+            }
+        }
+        
+        // Handle height with type checking
+        if (updates.containsKey("height")) {
+            Object heightValue = updates.get("height");
+            if (heightValue instanceof String) {
+                user.setHeight(Double.parseDouble((String) heightValue));
+            } else if (heightValue instanceof Number) {
+                user.setHeight(((Number) heightValue).doubleValue());
+            }
+        }
+        
+        // Handle weight with type checking
+        if (updates.containsKey("weight")) {
+            Object weightValue = updates.get("weight");
+            if (weightValue instanceof String) {
+                user.setWeight(Double.parseDouble((String) weightValue));
+            } else if (weightValue instanceof Number) {
+                user.setWeight(((Number) weightValue).doubleValue());
+            }
+        }
+        
         if (updates.containsKey("gender")) user.setGender((String) updates.get("gender"));
-
+    
         return ResponseEntity.ok(userRepository.save(user));
     }
 
